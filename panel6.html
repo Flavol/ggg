@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AstroPass </title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+       footer {
+            color: #fff; 
+            padding: 20px 0;
+            text-align: center;
+            position: relative; 
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s; 
+        }
+
+        .footer-links a:hover {
+            color: #f0db4f; 
+        }
+
+        .footer-social ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .footer-social li {
+            margin: 0 10px;
+        }
+
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .footer-social a:hover {
+            color: #f0db4f;
+        }
+
+
+
+        
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links ul,
+            .footer-social ul {
+                margin-bottom: 10px;
+                justify-content: center;
+            }
+        }
+      .product-container {
+        display: flex;
+        width: 1000px; 
+        border: 1px ;
+        margin: 20px auto; 
+        padding: 20px;
+        align-items: flex-start; 
+      }
+  
+      .image-order-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;  
+        width: 900px; 
+        margin-right: 20px;
+      }
+  
+      .product-image {
+        border-radius: 20px;
+        padding: 10px;
+        width: 300px;
+        height: 200px;
+      }
+  
+      .product-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 5px;
+        text-align: center; 
+      }
+  
+      .product-description {
+        
+        margin-bottom: 10px;
+        text-align: center; 
+      }
+  
+      .price-order-container {
+        display: flex;
+        justify-content: center; 
+      }
+  
+      .product-price {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 6px;
+        margin-right: 5px;
+      }
+  
+      .order-button {
+        background-color: #4ECCA3;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+  
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+  
+      .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+  
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+  
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+   .product-details:hover{
+      color: #eaeaea;
+    }
+    </style>
+
+</head>
+<body>
+
+<nav class="panel">
+    <Div class="panel1" align="center">
+    <Div>
+        <a href="index.html"><img class="logo" src="pic/logot.png"></a>
+    </Div>
+    
+        <button class="btv"><a href="index.html" class="str_wistawka">Главная</a></button>
+        <button class="btv"><a href="About the museum.html" class="str_wistawka">О музее</a></button>
+        <button class="btv"><a href="About us.html" class="str_wistawka">О нас</a></button>
+        <button class="btv"><a href="exhibitions.html" class="str_wistawka">Выставки</a></button>
+        <button class="btv"><a href="Basket.html" class="str_wistawka">Корзина</a></button>
+
+    
+</div>
+    </Div>
+</nav>
+<main class="telo">
+
+  <div class="product-container">
+
+    <div class="image-order-container">
+      <img src="pic/yaroslavl.jpg" alt="Изображение товара" class="product-image" id="myImg">
+      <div class="price-order-container">
+        <span class="product-price"></span>
+        <button class="add-to-cart-button" onclick="openTicketSelectionModal('Ярославль', 1000)">Добавить в корзину</button>
+        <button class="order-button" onclick="openModal()">Заказать: 1000(Детский) 1800(Взрослый) ₽</button>
+      </div>
+    </div>
+    
+    <div id="ticketSelectionModal" class="ticket-modal">
+      <div class="ticket-modal-content">
+        <span class="ticket-close-button" onclick="closeTicketSelectionModal()">&times;</span>
+    <h2>Выберите типы билетов</h2>
+    <p>Ярославль</p>
+    <form id="ticketSelectionForm">
+      <label for="adultTicketQuantity">Взрослые билеты:</label>
+      <input type="number" id="adultTicketQuantity" name="adultTicketQuantity" value="0" min="0"><br><br>
+
+      <label for="childTicketQuantity">Детские билеты:</label>
+      <input type="number" id="childTicketQuantity" name="childTicketQuantity" value="0" min="0"><br><br>
+
+      <button type="button" onclick="addSelectedTicketsToCart('Сергиев Посад', 1000)">Добавить в корзину</button>
+    </form>
+    </div>
+  </div>
+
+    <div class="product-details">
+      <h1 class="product-title" align="center"> Билет в Музей Космонавтики в Ярославле </h1>
+      <p class="product-description">
+        В мир звездных приключений!
+
+        Что это: Яркий билет, привлекательный для детей. Указаны: название, тип («детский»), цена.
+        
+        Внутри:
+        
+        Время: 2-3 часа, включая интерактивные зоны.
+        Что увидеть:
+        Космические корабли и ракеты.
+        Полеты на тренажерах.
+        Увлекательные экспонаты для юных космонавтов.
+        Эмоции: Восторг и радость познания!
+        Еще: Детские экскурсии, сувениры.
+      </p>
+      <h4 align="center">Приятного путешествия :)</h4>
+    </div>
+
+  </div>
+
+  <div id="orderModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Оформление заказа</h2>
+      <p>Пожалуйста, заполните форму ниже:</p>
+
+      <form>
+      <form>
+      <label for="name">Имя:</label><br>
+      <input type="text" id="name" name="name"><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email"><br><br>
+
+      <label for="address">Адрес доставки:</label><br>
+      <textarea id="address" name="address" rows="4" cols="50"></textarea><br><br>
+
+      <label for="deliveryDate">Дата доставки:</label><br>
+      <input type="date" id="deliveryDate" name="deliveryDate"><br><br>
+      
+      <label for="deliveryTime">Время доставки:</label><br>
+      <select id="deliveryTime" name="deliveryTime">
+        <option value="09:00-12:00">09:00 - 12:00</option>
+        <option value="12:00-15:00">12:00 - 15:00</option>
+        <option value="15:00-18:00">15:00 - 18:00</option>
+        <option value="18:00-21:00">18:00 - 21:00</option>
+        </select><br><br>
+        <label for="price">Выберите цену:</label><br>
+        <input type="range" id="priceRange" name="priceRange" min="1000" max="1800" value="300" step="10"> <!-- min, max и value должны соответствовать вашим значениям -->
+        <span id="priceValue">300 руб.</span><br><br>  <!-- Текущая цена -->
+        <input type="hidden" id="price" name="price" value="300">  <!-- Скрытое поле для передачи цены -->
+
+
+
+        <button type="button" onclick="sendToTelegram()">Отправить заказ</button>
+      </form>
+    </div>
+  </div>
+        </div>
+      <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+  <script>
+  
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+var span = document.getElementsByClassName("close")[0];
+
+
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+modal.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+        var modal = document.getElementById("orderModal");
+    
+        function openModal() {
+          modal.style.display = "block";
+        }
+    
+        function closeModal() {
+          modal.style.display = "none";
+        }
+    
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            closeModal();
+          }
+        }
+
+         function addToCart(name, price) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let itemIndex = cart.findIndex(item => item.name === name);
+
+        if (itemIndex > -1) {
+            cart[itemIndex].quantity++;
+        } else {
+            cart.push({ name: name, price: price, quantity: 1 });
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+
+      }
+
+        var modal = document.getElementById("orderModal");
+    
+        function openModal() {
+          modal.style.display = "block";
+        }
+    
+        function closeModal() {
+          modal.style.display = "none";
+        }
+    
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            closeModal();
+          }
+        }
+
+        
+    const ticketSelectionModal = document.getElementById("ticketSelectionModal");
+
+function openTicketSelectionModal(name, price) {
+  ticketSelectionModal.style.display = "block";
+}
+
+function closeTicketSelectionModal() {
+  ticketSelectionModal.style.display = "none";
+}
+
+window.onclick = function (event) {
+  if (event.target == ticketSelectionModal) {
+    closeTicketSelectionModal();
+  }
+}
+
+function addSelectedTicketsToCart(name, basePrice) {
+  const adultTicketQuantity = parseInt(document.getElementById("adultTicketQuantity").value);
+  const childTicketQuantity = parseInt(document.getElementById("childTicketQuantity").value);
+  const adultPrice = 1800;  // Цена взрослого билета
+  const childPrice = 1000; // Цена детского билета
+  const totalPrice = (adultTicketQuantity * adultPrice) + (childTicketQuantity * childPrice);
+
+
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  // Создаем отдельные элементы для каждого типа билета
+  if (adultTicketQuantity > 0) {
+    cart.push({ name: `${name} (Взрослый)`, price: adultPrice, quantity: adultTicketQuantity });
+  }
+
+  if (childTicketQuantity > 0) {
+    cart.push({ name: `${name} (Детский)`, price: childPrice, quantity: childTicketQuantity });
+  }
+
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  closeTicketSelectionModal();
+  alert("Билеты добавлены в корзину!");
+}
+
+        var modal = document.getElementById("orderModal");
+    
+        function openModal() {
+          modal.style.display = "block";
+        }
+    
+        function closeModal() {
+          modal.style.display = "none";
+        }
+    
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            closeModal();
+          }
+        }
+
+
+        var modal = document.getElementById("orderModal");
+    
+        function openModal() {
+          modal.style.display = "block";
+        }
+    
+        function closeModal() {
+          modal.style.display = "none";
+        }
+    
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            closeModal();
+          }
+        }
+
+             const botToken = '7591489459:AAGSuL0CAcigpg23tKzAJcZomdcSPgeIH00'; //  !!! КРАЙНЕ ОПАСНО!!!
+    const chatId = '-4889884974';   //  !!! КРАЙНЕ ОПАСНО!!!
+
+    function sendToTelegram() {
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const address = document.getElementById('address').value;
+        const deliveryDate = document.getElementById('deliveryDate').value;
+        const deliveryTime = document.getElementById('deliveryTime').value;
+        const price = document.getElementById('price').value;
+
+        const text = `Новый заказ:\n` +
+                     `Имя: ${name}\n` +
+                     `Email: ${email}\n` +
+                     `Адрес: ${address}\n` +
+                     `Дата доставки: ${deliveryDate}\n` +
+                     `Время доставки: ${deliveryTime}\n` +
+                     `Цена: ${price} руб.`;
+
+        const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+
+        fetch(url)
+            .then(response => {
+                if (response.ok) {
+                    alert('Заказ отправлен!');
+                } else {
+                    alert('Ошибка при отправке заказа.  Пожалуйста, проверьте консоль.');
+                    console.error('Ошибка отправки:', response);
+                }
+            })
+            .catch(error => {
+                alert('Произошла ошибка сети.  Пожалуйста, проверьте консоль.');
+                console.error('Ошибка сети:', error);
+            });
+    }
+
+     // Обновляем отображение цены при изменении ползунка
+    const priceRange = document.getElementById("priceRange");
+    const priceValue = document.getElementById("priceValue");
+    const priceInput = document.getElementById("price"); // Скрытое поле для передачи
+
+    priceRange.addEventListener("input", function() {
+        priceValue.textContent = this.value + " руб."; // Отображаем текущую цену
+        priceInput.value = this.value; // Обновляем значение скрытого поля
+    });
+
+
+
+  </script>
+
+</main>
+<footer>
+        <div class="footer-top">
+        <div class="contact-info">
+            <h3>Контакты</h3>
+            <p>Email: zelevarche@gmail.com</p>
+            <p>Телефон: +7 902 247 56 10</p>
+        </div>
+
+        <div class="social-links">
+            <h3>Мы в соцсетях</h3>
+            <a href="https://web.telegram.org/k/" target="_blank"><img src="pic/tg.png" alt="Telegram" width="32" height="32" class="tg"></a>
+            <a href="https://vk.com/" target="_blank"><img src="pic/vk.svg" alt="ВКонтакте" width="32" height="32" class="vk"></a>
+        </div>
+    </div>
+        <div class="footer-bottom">
+            &copy; 2025 Ваш Сайт. Все права защищены. | <a href="https://yandex.ru/legal/confidential/?from=fullscreen">Политика конфиденциальности</a> | <a href="https://www.advokatorium.com/ru/knowledge/obrazets-polzovatelskogo-soglasheniya-dlya-sayta">Условия использования</a>
+        </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AstroPass </title>
+    <link href="fot.css" rel="stylesheet">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.scroll-to-top {
+  display: none; /* Скрываем кнопку изначально */
+  position: fixed; /* Фиксированное положение */
+  bottom: 20px; /* Отступ от нижнего края */
+  right: 20px; /* Отступ от правого края */
+  background-color: #4ECCA3; /* Полупрозрачный фон */
+  color: white; /* Белый цвет текста */
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none; /* Убираем подчеркивание ссылки */
+  opacity: 0; /* Начальная прозрачность 0 */
+  transition: opacity 0.3s; /* Плавное появление/исчезновение */
+  z-index: 999; /* Высокий z-index, чтобы кнопка была поверх всего */
+}
+
+.scroll-to-top:hover {
+  background-color: #45B592; /* Затемнение при наведении */
+}
+
+.scroll-to-top.show {
+  display: block; /* Показываем кнопку */
+  opacity: 1; /* Делаем кнопку видимой */
+}
+
+               footer {
+              font-family: "Oswald", sans-serif;
+            background-color: #393E46; 
+            color: #fff; 
+            padding: 20px 0;
+            text-align: center;
+            position: relative; 
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color:  #4ECCA3;
+            text-decoration: none;
+            transition: color 0.3s;  
+        }
+
+        .footer-links a:hover {
+            color: #f0db4f; 
+        }
+
+        .footer-social ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .footer-social li {
+            margin: 0 10px;
+        }
+
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .footer-social a:hover {
+            color: #f0db4f;
+        }
+
+        .footer-bottom {
+            margin-top: 20px;
+            font-size: 0.8em;
+        }
+
+        
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links ul,
+            .footer-social ul {
+                margin-bottom: 10px;
+                justify-content: center;
+            }
+        }
+        .bloks{
+    
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.blok{
+    margin: 200px;
+    align-items: center;
+    max-width: 500px;
+    
+}
+.photo:hover{
+    transform: scale(1.3);
+}
+.photo2:hover{
+    transform: scale(1.3);
+}
+.photo{
+    transition: transform .2s;
+    text-align: center;
+    padding: 100px;
+    background-color: #242c2a;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.tekst{
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 1,100,900;
+    background-color: #242c2a;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+
+footer {
+    background-color: #333; 
+    color: #fff; 
+    padding: 15px; 
+    text-align: center; 
+  }
+  
+  footer a {
+    color: #fff; 
+    text-decoration: none; 
+  }
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+ 
+ html{
+    background: #283038;
+    animation: background 14s infinite alternate;
+    background-size: cover;
+}
+
+.panel{
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+    display: block;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(50,52,52,1) 100%);
+    padding: 5px;
+}
+
+.panel12{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: rgba(128, 128, 128, 0);
+    padding: 20px;
+    
+}
+.telo{
+    color: #EEEEEE;
+    background: #232931;
+    padding: 20px;
+}
+.niz{
+    text-align: center;
+    background-color: rgb(0, 136, 255);
+    border-radius: 30px;
+}
+
+.whot{
+    text-decoration: none;
+    color: white;
+    
+    font-family: "Exo 2", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 1,100,900;
+    transition: transform .2s;
+}
+.whot:hover{
+    color:rgb(159, 115, 115);
+    transform: scale(1.2);
+}
+.decor{
+    color: white;
+    text-decoration: none;
+}
+.decor:hover{
+    color: rgb(159, 115, 115);
+    filter: drop-shadow(5px 5px 5px rgba(35, 7, 7, 0.986));
+}
+.logo{
+    
+    transition: transform .2s;
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    opacity: 0.75;
+    
+}
+.logo:hover{
+    transform: scale(1.1);
+    opacity: 1;
+    filter: drop-shadow(5px 5px 5px rgba(49, 11, 11, 0.986));
+}
+
+.btv{
+    transition: transform .2s;
+    padding: 0.5em 2em; 
+    font-size: 1.2rem; 
+    background-color:#4ECCA3; 
+    color: #fff; 
+    border: none; 
+}
+.btv:hover {
+    transform: scale(1.1);
+    background-color: #45B592;  
+   }
+
+
+.str_wistawka{
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 1,100,900;
+    text-decoration: none;
+    color: #232931;
+}
+
+.back{
+    font-size: xx-large ;
+    text-decoration: none;
+    color: white;
+}
+        .panel2{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: rgba(128, 128, 128, 0);
+    padding: 20px;
+    margin-left: 3px;
+    
+}
+.panelq{
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+    display: block;
+    background: #393E46;
+
+
+}
+
+.bloks{
+    margin: 10px;
+  padding: 10px;
+  display: flex; /* Чтобы блоки шли в линию */
+  justify-content: center;
+  flex-wrap: wrap; /* Перенос на новую строку при нехватке места */ /* Центрирование блоков по горизонтали */
+  gap: 5vw; /* Добавим отступы между блоками */
+}
+.blok{
+  display: flex;
+  flex-direction: column; /* фото сверху, текст снизу */
+  align-items: center; /*  выравнивание по центру по горизонтали */
+  max-width: 250px; /* Максимальная ширина блока */
+  width: 100%; /* Занимать всю доступную ширину */
+  /*margin: 20px; /*  небольшие отступы  */ /* удалил и добавил gap у .bloks */
+}
+
+.photo{
+   box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+  text-align: center;
+  padding: 50px; /*  уменьшил отступы */
+  background-color: #242c2a;
+  border-radius: 15px;
+  margin-bottom: 35px; /* Отступ между фото и текстом */
+  width: clamp(100px, 10vw, 300px); /*  Фото занимает всю ширину блока */
+  aspect-ratio: 1;
+  box-sizing: border-box; /*  padding не увеличивает ширину */
+}
+
+.photo:hover{
+    transform: scale(1.3);
+}
+
+.tekst{
+   line-height: 35px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 1, 100, 900;
+  background-color: #333A42 ;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%; /*  Текст занимает всю ширину блока */
+  box-sizing: border-box; /* padding не увеличивает ширину */
+  text-align: center; /*  Центрирование текста в блоке */
+  flex-wrap: wrap;
+}
+
+#q{
+    filter: grayscale(100%);
+    background-image: url("pic/pasat.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+}
+.btv2{
+    transition: transform .2s;
+    padding: 0.5em 2em; 
+    font-size: 1.2rem; 
+    background-color:#4ECCA3; 
+    color: #fff; 
+    border: none; 
+}
+.btv2:hover {
+    transform: scale(1.1);
+    background-color: #45B592;  
+   }
+.w{
+      font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 1,100,900;
+    text-decoration: none;
+    color: #232931;
+   }
+
+#kor{
+    filter: grayscale(100%);
+    background-image: url("pic/korolev.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;  
+}
+
+#mos{
+    filter: grayscale(100%);
+    background-image: url("pic/moscow.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center;  
+}
+.vistavka{
+    color: #EEEEEE;
+    background: #232931;
+    padding: 20px;
+}
+
+
+#picture4{
+    filter: grayscale(100%);
+    background-image: url("pic/sankt-peterburg.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+
+}
+
+#picture5{
+    filter: grayscale(100%);
+    background-image: url("pic/voroneg.jpeg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+}
+
+#picture6{
+    filter: grayscale(100%);
+    background-image: url("pic/yaroslavl.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+}
+
+#picture7{
+    filter: grayscale(100%);
+    background-image: url("pic/samara.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+}
+
+#picture8{
+    filter: grayscale(100%);
+    background-image: url("pic/kazan.jpeg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+}
+
+#picture9{
+    filter: grayscale(100%);
+    background-image: url("pic/perm.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+}
+#picture10{
+    filter: grayscale(100%);
+    background-image: url("pic/volgograd.jpeg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+} 
+
+#picture11{
+    filter: grayscale(100%);
+    background-image: url("pic/tomsk.jpeg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+}
+
+#picture12{
+    filter: grayscale(100%);
+    background-image: url("pic/smolensk.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+}
+
+#picture13{
+    filter: grayscale(100%);
+    background-image: url("pic/orenbyrg.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+}
+
+#picture14{
+    filter: grayscale(100%);
+    background-image: url("pic/ekaterinburg.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+}
+
+#picture15{
+    filter: grayscale(100%);
+    background-image: url("pic/novosibirsk.jpg");
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
+    
+}
+#search-input{
+    background-color: #4ECCA3;
+    color:#232931;
+}
+
+
+
+.search-container input[type="text"] {     
+    padding: 5px;
+}
+
+    .black-text::placeholder {
+        color: black;
+    }
+    </style>
+</head>
+<nav class="panelq">
+    <Div class="panel2" align="center">
+    <Div>
+        <a href="index.html"><img class="logo" src="pic/logot.png"></a>
+    </Div>
+    
+        <button class="btv2"><a class="w" href="index.html">Главная</a></button>
+        <button class="btv2"><a class="w" href="About the museum.html">О музее</a></button>
+        <button class="btv2"><a class="w" href="About us.html">О нас</a></button>
+        <button class="btv2"><a class="w" href="exhibitions.html">Выставки</a></button>
+        <button class="btv2"><a href="Basket.html" class="w">Корзина</a></button>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Поиск города..." class="black-text">
+        </div>
+ 
+</div>
+  
+    </Div>
+    
+</nav>
+
+<main class="vistavka">
+        <div class="bloks" id="bloks-container">
+            <div class="blok" data-city="Сергиев Посад">
+                <a href="panel1.html"><div class="photo" id="q"> </div></a>
+                <div class="tekst" align="center"><h1> город Сергиев Посад </h1></div>
+            </div>
+
+            <div class="blok"  data-city="Королев">
+                <a href="panel3.html"><div class="photo" id="kor"> </div></a>
+                <div class="tekst" align="center"> <h1> город Королев </h1> </div>
+            </div>
+
+            <div class="blok" data-city="Москва">
+                <a href="panel2.html"><div class="photo" id="mos"> </div></a>
+                <div class="tekst" align="center"> <h1> город Москва </h1> </div>
+            </div>
+
+            <div class="blok" data-city="Санкт-Петербург">
+                <a href="panel4.html"><div class="photo" id="picture4"> </div></a>
+                <div class="tekst" align="center"><h1> город Санкт-Петербург </h1></div>
+            </div>
+
+            <div class="blok" data-city="Воронеж">
+                <a href="panel5.html"><div class="photo" id="picture5"> </div></a>
+                <div class="tekst" align="center"> <h1> город Воронеж </h1> </div>
+            </div>
+
+            <div class="blok" data-city="Ярославль">
+                <a href="panel6.html"><div class="photo" id="picture6"> </div></a>
+                <div class="tekst" align="center"> <h1> город Ярославль </h1> </div>
+            </div>
+
+            <div class="blok" data-city="Самара">
+                <a href="panel7.html"><div class="photo" id="picture7"> </div></a>
+                <div class="tekst" align="center"><h1> город Самара </h1></div>
+            </div>
+
+            <div class="blok" data-city="Казань">
+                <a href="panel8.html"><div class="photo" id="picture8"> </div></a>
+                <div class="tekst" align="center"> <h1> город Казань </h1> </div>
+            </div>
+
+            <div class="blok" data-city="Пермь">
+                <a href="panel9.html"><div class="photo" id="picture9"> </div></a>
+                <div class="tekst" align="center"> <h1> город Пермь </h1> </div>
+            </div>
+
+            <div class="blok"  data-city="Волгоград">
+                <a href="panel10.html"><div class="photo" id="picture10"> </div></a>
+                <div class="tekst" align="center"><h1> город Волгоград </h1></div>
+            </div>
+
+            <div class="blok"  data-city="Томск">
+                <a href="panel11.html"><div class="photo" id="picture11"> </div></a>
+                <div class="tekst" align="center"> <h1> город Томск </h1> </div>
+            </div>
+
+            <div class="blok" data-city="Смоленск">
+                <a href="panel12.html"><div class="photo" id="picture12"> </div></a>
+                <div class="tekst" align="center"> <h1> город Смоленск </h1> </div>
+            </div>
+
+            <div class="blok" data-city="Оренбург">
+                <a href="panel13.html"><div class="photo" id="picture13"> </div></a>
+                <div class="tekst" align="center"><h1> город Оренбург </h1></div>
+            </div>
+
+            <div class="blok" data-city="Екатеринбург">
+                <a href="panel14.html"><div class="photo" id="picture14"> </div></a>
+                <div class="tekst" align="center"> <h1> город Екатеринбург </h1> </div>
+            </div>
+
+            <div class="blok" data-city="Новосибирск">
+                <a href="panel15.html"><div class="photo" id="picture15"> </div></a>
+                <div class="tekst" align="center"> <h1> город Новосибирск </h1> </div>
+            </div>
+
+
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('search-input');
+            const bloksContainer = document.getElementById('bloks-container');
+            const blokElements = bloksContainer.querySelectorAll('.blok'); // Получаем все элементы .blok
+
+            searchInput.addEventListener('input', function() {
+                const searchTerm = searchInput.value.toLowerCase(); // Получаем текст из поля поиска и приводим к нижнему регистру
+
+                blokElements.forEach(blok => {
+                    const city = blok.dataset.city.toLowerCase(); // Получаем город из атрибута data-city и приводим к нижнему регистру
+
+                    if (city.includes(searchTerm)) {
+                        blok.style.display = 'block'; // Показываем блок, если город соответствует поисковому запросу
+                    } else {
+                        blok.style.display = 'none'; // Скрываем блок, если город не соответствует поисковому запросу
+                    }
+                });
+            });
+        });
+    </script>
+
+
+</main>
+<footer>
+          <div class="footer-top">
+        <div class="contact-info">
+            <h3>Контакты</h3>
+            <p>Email: zelevarche@gmail.com</p>
+            <p>Телефон: +7 902 247 56 10</p>
+        </div>
+
+        <div class="social-links">
+            <h3>Мы в соцсетях</h3>
+            <a href="https://web.telegram.org/k/" target="_blank"><img src="pic/tg.png" alt="Telegram" width="32" height="32" class="tg"></a>
+            <a href="https://vk.com/" target="_blank"><img src="pic/vk.svg" alt="ВКонтакте" width="32" height="32" class="vk"></a>
+        </div>
+    </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 Ваш Сайт. Все права защищены. | <a href="https://yandex.ru/legal/confidential/?from=fullscreen">Политика конфиденциальности</a> | <a href="https://www.advokatorium.com/ru/knowledge/obrazets-polzovatelskogo-soglasheniya-dlya-sayta">Условия использования</a>
+        </div>
+        <a href="#" class="scroll-to-top" id="scrollToTopBtn">
+             &#8679; <!-- Стрелка вверх (Unicode) -->
+        </a>
+
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  function trackScroll() {
+    // Вычисляем, сколько прокручено от низа документа:
+    let scrolledFromBottom = document.documentElement.scrollHeight - document.documentElement.scrollTop - document.documentElement.clientHeight;
+
+    if (scrolledFromBottom < 1200) { 
+      scrollToTopBtn.classList.add("show");
+    } else {
+      scrollToTopBtn.classList.remove("show");
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth" // Плавная прокрутка
+    });
+  }
+
+  window.addEventListener('scroll', trackScroll);
+  scrollToTopBtn.addEventListener('click', scrollToTop);
+});
+</script>
+</footer>
+</html>

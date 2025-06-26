@@ -1,0 +1,24 @@
+      .footer-top {
+        display: flex;
+        justify-content: space-around; /* Размещает блоки по краям */
+        margin-bottom: 10px;
+    }
+
+    .contact-info,
+    .social-links {
+      color: #45B592;
+        text-align: left; /* Выравнивание текста слева */
+    }
+
+    .social-links a {
+        display: inline-block; /* Размещает иконки в ряд */
+        margin-right: 10px;
+    }
+
+    .footer-bottom {
+        margin-top: 10px;
+    }
+
+    .tg, .vk{
+      filter: grayscale(100%);
+    }

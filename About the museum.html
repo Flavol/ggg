@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> AstroPass </title>
+    <link href="fot.css" rel="stylesheet">
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+.scroll-to-top {
+  display: none; /* Скрываем кнопку изначально */
+  position: fixed; /* Фиксированное положение */
+  bottom: 20px; /* Отступ от нижнего края */
+  right: 20px; /* Отступ от правого края */
+  background-color: #4ECCA3; /* Полупрозрачный фон */
+  color: white; /* Белый цвет текста */
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none; /* Убираем подчеркивание ссылки */
+  opacity: 0; /* Начальная прозрачность 0 */
+  transition: opacity 0.3s; /* Плавное появление/исчезновение */
+  z-index: 999; /* Высокий z-index, чтобы кнопка была поверх всего */
+}
+
+.scroll-to-top:hover {
+  background-color: #45B592; /* Затемнение при наведении */
+}
+
+.scroll-to-top.show {
+  display: block; /* Показываем кнопку */
+  opacity: 1; /* Делаем кнопку видимой */
+}
+
+.panel2{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: rgba(128, 128, 128, 0);
+    padding: 20px;
+    margin-left: 3px;
+    
+}
+.panelq{
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+    display: block;
+    background: #393E46;
+    
+
+}
+      .back{
+    font-size: xx-large ;
+    text-decoration: none;
+    color: white;
+} 
+
+
+html{
+    background: #283038;
+    animation: background 14s infinite alternate;
+    background-size: cover;
+} 
+
+.panel{
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5); 
+    display: block;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 60%, rgba(50,52,52,1) 100%);
+}
+
+.panel1{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    background-color: rgba(128, 128, 128, 0);
+    padding: 20px;
+    margin-left: 3px;
+}
+.telo{
+    background-color: rgb(23, 23, 23);
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+}
+.niz{
+    text-align: center;
+    background-color: rgb(0, 136, 255);
+    border-radius: 30px;
+}
+
+.whot{
+    
+    transition: transform .2s;
+}
+.whot:hover{
+    transform: scale(1.2);
+}
+.decor{
+    color: white;
+    text-decoration: none;
+}
+.decor:hover{
+    color: rgb(159, 115, 115);
+    filter: drop-shadow(5px 5px 5px rgba(35, 7, 7, 0.986));
+}
+.logo{
+    transition: transform .2s;
+    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    opacity: 0.75;
+    
+}
+.logo:hover{
+    transform: scale(1.1);
+    opacity: 1;
+    filter: drop-shadow(5px 5px 5px rgba(49, 11, 11, 0.986));
+}
+
+.btv{
+    transition: transform .2s;
+    padding: 0.5em 2em; 
+    font-size: 0.9em; 
+    background-color: #000000; 
+    color: #fff; 
+    border: none; 
+}
+.btv:hover {
+    transform: scale(1.1);
+    background-color: #242c2a; 
+    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #ffffff; 
+   }
+
+
+.str_wistawka{
+    text-decoration: none;
+    color: white;
+}
+    .sat{
+    font-family: "Oswald", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-weight: 1,100,900;
+    text-decoration: none;
+    color: #232931;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 10px;
+      padding: 0;
+      color: #333;
+    }
+
+    .vistavka{
+    color: #EEEEEE;
+    background: #232931;
+    padding: 1.5vw;
+    }
+
+    h1, h2 {
+      font-family: "Oswald", sans-serif;
+      color: #ffffff; 
+      margin-bottom: 20px;
+      border-bottom: 2px solid #eee;
+      padding-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-top: 30px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    .highlight {
+      font-weight: bold;
+      color: #007bff;
+    }
+
+    .museum-section {
+      margin-bottom: 30px;
+    }
+
+    .museum-image {
+      width: clamp(100px, 20vw, 700px);
+      max-width: 600px;
+      height: auto;
+      margin: 20px auto;
+      display: block;
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info1 {
+      margin-top: 30px;
+      border-top: 2px solid #eee;
+      padding-top: 20px;
+    }
+
+    .contact-info1 p {
+      margin-bottom: 10px;
+    }
+  .btv3{
+    transition: transform .2s;
+    padding: 0.5em 2em; 
+    font-size: 1.2rem; 
+    background-color:#4ECCA3; 
+    color: #fff; 
+    border: none; 
+}
+.btv3:hover {
+    transform: scale(1.1);
+    background-color: #45B592;  
+   }
+
+
+.footer-container {
+    max-width: 1200px;
+   margin: 0 auto;
+   padding: 0 20px;
+   display: flex;
+   justify-content: space-between; 
+   align-items: center; 
+   flex-wrap: wrap; 
+}
+.footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+          color:  #4ECCA3;
+          text-decoration: none;
+          transition: color 0.3s; 
+        }
+
+        .footer-links a:hover {
+            color: #f0db4f; 
+        }
+
+        .footer-social ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .footer-social li {
+            margin: 0 10px;
+        }
+
+        .footer-social a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .footer-social a:hover {
+            color: #f0db4f;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color:  #4ECCA3;
+            margin-top: 20px;
+            font-size: 0.8em;
+        }
+        .footer-bottom a{
+            color:  #4ECCA3;
+            margin-top: 20px;
+            font-size: 0.8em;
+        }
+
+        
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-links ul,
+            .footer-social ul {
+                margin-bottom: 10px;
+                justify-content: center;
+            }
+        }
+
+          
+  .modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgba(0,0,0,0.9); 
+  }
+
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+
+
+  #caption {
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.2em;
+  }
+
+  
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  
+  @media only screen and (max-width: 700px){
+    .modal-content {
+      width: 100%;
+    }
+  }
+
+  .kkkk{
+  font-family: "Oswald", sans-serif;
+background: #393E46;
+padding: 20px 0;
+text-align: center;
+position: relative; 
+bottom: 0;
+width: 100%;
+  }
+    </style>
+</head>
+<nav class="panelq">
+    <Div class="panel2" align="center">
+    <Div>
+        <a href="index.html"><img class="logo" src="pic/logot.png"></a>
+    </Div>
+    
+        <button class="btv3"><a href="index.html" class="sat">Главная</a></button>
+        <button class="btv3"><a href="About the museum.html" class="sat">О музее</a></button>
+        <button class="btv3"><a href="About us.html" class="sat">О нас</a></button>
+        <button class="btv3"><a href="exhibitions.html" class="sat">Выставки</a></button>
+        <button class="btv3"><a href="Basket.html" class="sat">Корзина</a></button>
+ 
+</div>
+    </Div>
+    
+</nav>
+
+<main class="vistavka">
+    <div class="container">
+        <h1>О музее - AstroPass</h1>
+    
+        <p>Добро пожаловать на страницу "О музее"! Здесь вы найдёте подробную информацию об истории, коллекциях, экспозициях и мероприятиях AstroPass. Мы приглашаем вас открыть для себя мир космонавтики и окунемся в увлекательную историю, представленную в наших залах.</p>
+    
+        <div class="museum-section">
+          <h2>История музея</h2>
+          <img src="pic/korol.jpg" id="myImg" alt="История музея" class="museum-image">
+          <p>Музей AstroPass был основан в 1961 году по инициативе С.П. Королёва, вскоре после полёта Гагарина, и открыт для посетителей в 1981 году.
+
+            С момента открытия он стал главным хранителем истории освоения космоса.
+            
+            Важные этапы:
+            
+            Формирование экспозиции (60-70-е).
+            Открытие для публики (1981).
+            Включение международного сотрудничества (90-е).
+            Реконструкция и новые технологии (2000-е).
+            Сегодня – это культурный центр, вдохновляющий на новые открытия!</p>
+        </div>
+    
+        <div class="museum-section">
+          <h2>Наша миссия</h2>
+          <p>Миссия AstroPass — сохранение, изучение и популяризация истории освоения космоса и современных космических достижений. Мы стремимся сделать космические исследования понятными и увлекательными для всех, кто интересуется наукой и космосом. Наша задача — вдохновлять людей на изучение космоса, развитие технологий и освоение новых горизонтов. Мы стремимся быть центром притяжения для исследователей, энтузиастов и всех, кто мечтает о звёздах, а также способствовать сохранению бесценного наследия космических открытий.</p>
+        </div>
+    
+        <div class="museum-section">
+          <h2>Коллекции и экспозиции</h2>
+          <img   src="pic/gaga.jpg" id="myImg" alt="Экспозиция музея" class="museum-image">
+          <p>В Музее Космонавтики вас ждут:
+
+            История покорения космоса: От первых спутников до Гагарина.
+            Пилотируемые полёты: корабли «Союз», скафандры космонавтов.
+            Исследование планет: луноходы, станции «Венера» и «Марс».
+            Ракетная техника: Модели ракет-носителей.
+            Международное сотрудничество: Совместные космические проекты.
+            Уникальные экспонаты: спускаемый аппарат Гагарина, базовый блок «Мир».
+            
+            Что вы увидите: Корабли, станции, скафандры, макеты, интерактив!
+            
+            Временные выставки и мероприятия: следите за анонсами — выставки, встречи, лекции, фильмы!</p>
+        </div>
+    
+        <div class="museum-section">
+          <h2>Мероприятия и программы</h2>
+          <p>В AstroPass:
+
+            Экскурсии: обзорные, тематические, для всех возрастов (запись на сайте/по телефону).
+            Лекции: научно-популярные от специалистов (расписание на сайте).
+            Мастер-классы: сборка моделей, творчество (для детей и взрослых).
+            Детские программы: Интерактивные занятия и игры.
+            Космические квесты: Семейные приключения.
+            Встречи с космонавтами: вопросы и ответы (анонсы на сайте).
+            Кинопоказы: Фильмы о космосе.
+            Тематические мероприятия: Праздники и события.
+            Подробности - на сайте в разделе “Афиша”.</p>
+        </div>
+    
+        <div class="contact-info1">
+          <h2>Контактная информация</h2>
+          <p><strong>Адрес:</strong> Улица Марины Цветаевой, 15, Королёв, Московская область</p>
+          <p><strong>Телефон:</strong> +79363391688</p>
+          <p><strong>Email:</strong> <a href="https://mail.google.com/mail/u/0/#inbox">zelevarche@gmail.com</a></p>
+          <p><strong>Сайт:</strong> <a href="index.html">AstroPass</a></p>
+        </div>
+    
+      </div>
+
+
+
+            <div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption">Описание изображения</div>
+
+
+</div>
+
+
+<script>
+
+var modal = document.getElementById("myModal");
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+var span = document.getElementsByClassName("close")[0];
+
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src; 
+  captionText.innerHTML = this.alt; 
+}
+
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+
+modal.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+</main>
+
+<footer class="kkkk">
+              <div class="footer-top">
+        <div class="contact-info">
+            <h3>Контакты</h3>
+            <p>Email: zelevarche@gmail.com</p>
+            <p>Телефон: +7 902 247 56 10</p>
+        </div>
+
+        <div class="social-links">
+            <h3>Мы в соцсетях</h3>
+            <a href="https://web.telegram.org/k/" target="_blank"><img src="pic/tg.png" alt="Telegram" width="32" height="32" class="tg"></a>
+            <a href="https://vk.com/" target="_blank"><img src="pic/vk.svg" alt="ВКонтакте" width="32" height="32" class="vk"></a>
+        </div>
+    </div>
+        <div class="footer-bottom">
+            &copy; 2025 Ваш Сайт. Все права защищены. | <a href="https://yandex.ru/legal/confidential/?from=fullscreen">Политика конфиденциальности</a> | <a href="https://www.advokatorium.com/ru/knowledge/obrazets-polzovatelskogo-soglasheniya-dlya-sayta">Условия использования</a>
+        </div>
+
+
+                <a href="#" class="scroll-to-top" id="scrollToTopBtn">
+             &#8679; <!-- Стрелка вверх (Unicode) -->
+        </a>
+
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+  const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+  function trackScroll() {
+    // Вычисляем, сколько прокручено от низа документа:
+    let scrolledFromBottom = document.documentElement.scrollHeight - document.documentElement.scrollTop - document.documentElement.clientHeight;
+
+    if (scrolledFromBottom < 1500) { 
+      scrollToTopBtn.classList.add("show");
+    } else {
+      scrollToTopBtn.classList.remove("show");
+    }
+  }
+
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth" // Плавная прокрутка
+    });
+  }
+
+  window.addEventListener('scroll', trackScroll);
+  scrollToTopBtn.addEventListener('click', scrollToTop);
+});
+</script>
+</footer>
+
+</html>
