@@ -499,6 +499,37 @@ footer {
     .black-text::placeholder {
         color: black;
     }
+
+.video-modal {
+        display: none; /* Скрыто по умолчанию */
+        position: fixed;
+        z-index: 1; /* Поверх всего */
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    .video-modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #000000;
+        width: 80%; /* Could be more or less, depending on screen size */
+        position: relative; /* Для позиционирования кнопки закрытия */
+    }
+
+    .video-close-button {
+        color: #000000;
+        position: absolute;
+        top: 0;
+        right: 5px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
     </style>
 </head>
 <nav class="panelq">
@@ -526,83 +557,103 @@ footer {
         <div class="bloks" id="bloks-container">
             <div class="blok" data-city="Сергиев Посад">
                 <a href="panel1.html"><div class="photo" id="q"> </div></a>
-                <div class="tekst" align="center"><h1> город Сергиев Посад </h1></div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://yandex.ru/video/preview/2631576797745953391')"><h1> город Сергиев Посад </h1></div>
             </div>
 
             <div class="blok"  data-city="Королев">
                 <a href="panel3.html"><div class="photo" id="kor"> </div></a>
-                <div class="tekst" align="center"> <h1> город Королев </h1> </div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"> <h1> город Королев </h1> </div>
             </div>
 
             <div class="blok" data-city="Москва">
                 <a href="panel2.html"><div class="photo" id="mos"> </div></a>
-                <div class="tekst" align="center"> <h1> город Москва </h1> </div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"> <h1> город Москва </h1> </div>
             </div>
 
             <div class="blok" data-city="Санкт-Петербург">
                 <a href="panel4.html"><div class="photo" id="picture4"> </div></a>
-                <div class="tekst" align="center"><h1> город Санкт-Петербург </h1></div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"><h1> город Санкт-Петербург </h1></div>
             </div>
 
             <div class="blok" data-city="Воронеж">
                 <a href="panel5.html"><div class="photo" id="picture5"> </div></a>
-                <div class="tekst" align="center"> <h1> город Воронеж </h1> </div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"> <h1> город Воронеж </h1> </div>
             </div>
 
             <div class="blok" data-city="Ярославль">
                 <a href="panel6.html"><div class="photo" id="picture6"> </div></a>
-                <div class="tekst" align="center"> <h1> город Ярославль </h1> </div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"> <h1> город Ярославль </h1> </div>
             </div>
 
             <div class="blok" data-city="Самара">
                 <a href="panel7.html"><div class="photo" id="picture7"> </div></a>
-                <div class="tekst" align="center"><h1> город Самара </h1></div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"><h1> город Самара </h1></div>
             </div>
 
             <div class="blok" data-city="Казань">
                 <a href="panel8.html"><div class="photo" id="picture8"> </div></a>
-                <div class="tekst" align="center"> <h1> город Казань </h1> </div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"> <h1> город Казань </h1> </div>
             </div>
 
             <div class="blok" data-city="Пермь">
                 <a href="panel9.html"><div class="photo" id="picture9"> </div></a>
-                <div class="tekst" align="center"> <h1> город Пермь </h1> </div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"> <h1> город Пермь </h1> </div>
             </div>
 
             <div class="blok"  data-city="Волгоград">
                 <a href="panel10.html"><div class="photo" id="picture10"> </div></a>
-                <div class="tekst" align="center"><h1> город Волгоград </h1></div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"><h1> город Волгоград </h1></div>
             </div>
 
             <div class="blok"  data-city="Томск">
                 <a href="panel11.html"><div class="photo" id="picture11"> </div></a>
-                <div class="tekst" align="center"> <h1> город Томск </h1> </div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"> <h1> город Томск </h1> </div>
             </div>
 
             <div class="blok" data-city="Смоленск">
                 <a href="panel12.html"><div class="photo" id="picture12"> </div></a>
-                <div class="tekst" align="center"> <h1> город Смоленск </h1> </div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"> <h1> город Смоленск </h1> </div>
             </div>
 
             <div class="blok" data-city="Оренбург">
                 <a href="panel13.html"><div class="photo" id="picture13"> </div></a>
-                <div class="tekst" align="center"><h1> город Оренбург </h1></div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"><h1> город Оренбург </h1></div>
             </div>
 
             <div class="blok" data-city="Екатеринбург">
                 <a href="panel14.html"><div class="photo" id="picture14"> </div></a>
-                <div class="tekst" align="center"> <h1> город Екатеринбург </h1> </div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"> <h1> город Екатеринбург </h1> </div>
             </div>
 
             <div class="blok" data-city="Новосибирск">
                 <a href="panel15.html"><div class="photo" id="picture15"> </div></a>
-                <div class="tekst" align="center"> <h1> город Новосибирск </h1> </div>
+                <div class="tekst" align="center" onclick="openVideoModal('https://youtu.be/u9MDugfHxiY?si=HMlWwud63eeIczrq')"> <h1> город Новосибирск </h1> </div>
             </div>
 
 
     </div>
+
+    <div id="videoModal" class="video-modal">
+    <div class="video-modal-content">
+        <span class="video-close-button" onclick="closeVideoModal()">&times;</span>
+        <iframe id="videoFrame" width="560" height="315" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+</div>
     
     <script>
+            function openVideoModal(videoURL) {
+        let modal = document.getElementById("videoModal");
+        let iframe = document.getElementById("videoFrame");
+        iframe.src = videoURL; // Устанавливаем URL видео
+        modal.style.display = "block"; // Отображаем модальное окно
+    }
+
+    function closeVideoModal() {
+        let modal = document.getElementById("videoModal");
+        let iframe = document.getElementById("videoFrame");
+        iframe.src = ""; // Очищаем URL видео
+        modal.style.display = "none"; // Скрываем модальное окно
+    }
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('search-input');
             const bloksContainer = document.getElementById('bloks-container');

@@ -352,90 +352,74 @@ text-align: start;
   </div>
 
 <script>
-    
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    function removeFromCart(name) {
-        cart = cart.filter(item => item.name !== name);
+function removeFromCart(name) {
+    cart = cart.filter(item => item.name !== name);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCart();
+}
+
+function changeQuantity(name, quantity) {
+    let itemIndex = cart.findIndex(item => item.name === name);
+    if (itemIndex > -1) {
+        cart[itemIndex].quantity = parseInt(quantity);
+        if (cart[itemIndex].quantity <= 0) {
+            removeFromCart(name);
+        }
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCart();
     }
+}
 
-    function changeQuantity(name, quantity) {
-        let itemIndex = cart.findIndex(item => item.name === name);
-        if (itemIndex > -1) {
-            cart[itemIndex].quantity = parseInt(quantity);
-            if (cart[itemIndex].quantity <= 0) {
-                removeFromCart(name);
-            }
-            localStorage.setItem('cart', JSON.stringify(cart));
-            updateCart();
-        }
-    }
-
-    function updateCart() {
-        let cartItemsDiv = document.getElementById('cart-items');
-        let cartTotalDiv = document.getElementById('cart-total');
-        let total = 0;
-        cartItemsDiv.innerHTML = '';
-
-        for (let i = 0; i < cart.length; i++) {
-            let item = cart[i];
-            total += item.price * item.quantity;
-
-            cartItemsDiv.innerHTML += `
-                <div class="cart-item">
-                    <span>${item.name}</span>
-                    <span>
-                        <input type="number" value="${item.quantity}" min="1" onchange="changeQuantity('${item.name}', this.value)"> шт.
-                    </span>
-                    <span>${item.price * item.quantity} руб.</span>
-                    <button onclick="removeFromCart('${item.name}')">Удалить</button>
-                </div>
-            `;
-        }
-
-        cartTotalDiv.innerText = 'Итого: ' + total + ' руб.';
-    }
-
-
-    updateCart();  // Initial cart update
-
-
-
-      // JavaScript код (остается без изменений)
-        var modal = document.getElementById("orderModal");
-    
-        function openModal() {
-          modal.style.display = "block";
-        }
-    
-        function closeModal() {
-          modal.style.display = "none";
-        }
-    
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            closeModal();
-          }
-        }
-
-
-    document.addEventListener('DOMContentLoaded', function() {
-    const cartItemsDiv = document.getElementById('cartItems');
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+function updateCart() {
+    let cartItemsDiv = document.getElementById('cart-items');
+    let cartTotalDiv = document.getElementById('cart-total');
+    let total = 0;
+    cartItemsDiv.innerHTML = ''; // Очищаем содержимое cartItemsDiv
 
     if (cart.length === 0) {
-      cartItemsDiv.innerHTML = '<p>Ваша корзина пуста.</p>';
+        cartItemsDiv.innerHTML = '<p>Ваша корзина пуста.</p>';
     } else {
-      let cartHTML = '<ul>';
-      cart.forEach(item => {
-        cartHTML += `<li>${item.name} - ${item.quantity} шт. x ${item.price} руб. = ${item.quantity * item.price} руб.</li>`;
-      });
-      cartHTML += '</ul>';
-      cartItemsDiv.innerHTML = cartHTML;
+        let cartHTML = '<ul>'; // Начинаем список <ul>
+        cart.forEach(item => {
+            cartHTML += `
+                <li>
+                    ${item.name} - ${item.quantity} шт. x ${item.price} руб. = ${item.quantity * item.price} руб.
+                    <input type="number" value="${item.quantity}" min="1" onchange="changeQuantity('${item.name}', this.value)">
+                    <button onclick="removeFromCart('${item.name}')">Удалить</button>
+                </li>
+            `;
+            total += item.price * item.quantity; // Добавляем к общей сумме
+        });
+        cartHTML += '</ul>'; // Закрываем список <ul>
+        cartItemsDiv.innerHTML = cartHTML; // Устанавливаем весь HTML корзины
     }
-  });
+
+    cartTotalDiv.innerText = 'Итого: ' + total + ' руб.'; // Обновляем итоговую сумму
+}
+
+
+updateCart();  // Initial cart update
+
+
+
+// JavaScript код (остается без изменений)
+var modal = document.getElementById("orderModal");
+
+function openModal() {
+    modal.style.display = "block";
+}
+
+function closeModal() {
+    modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+    if (event.target == modal) {
+        closeModal();
+    }
+}
 
 
 

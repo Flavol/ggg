@@ -219,22 +219,25 @@
     </div>
 
     
-    <div id="ticketSelectionModal" class="ticket-modal">
-      <div class="ticket-modal-content">
+ <div id="ticketSelectionModal" class="ticket-modal">
+    <div class="ticket-modal-content">
         <span class="ticket-close-button" onclick="closeTicketSelectionModal()">&times;</span>
-    <h2>Выберите типы билетов</h2>
-    <p>Санкт-Петербург</p>
-    <form id="ticketSelectionForm">
-      <label for="adultTicketQuantity">Взрослые билеты:</label>
-      <input type="number" id="adultTicketQuantity" name="adultTicketQuantity" value="0" min="0"><br><br>
+        <h2>Выберите типы билетов</h2>
+        <p>Санкт-Петербург</p>
+        <form id="ticketSelectionForm">
+            <label for="adultTicketQuantity">Взрослые билеты:</label>
+            <input type="number" id="adultTicketQuantity" name="adultTicketQuantity" value="0" min="0"><br><br>
 
-      <label for="childTicketQuantity">Детские билеты:</label>
-      <input type="number" id="childTicketQuantity" name="childTicketQuantity" value="0" min="0"><br><br>
+            <label for="childTicketQuantity">Детские билеты:</label>
+            <input type="number" id="childTicketQuantity" name="childTicketQuantity" value="0" min="0"><br><br>
 
-      <button type="button" onclick="addSelectedTicketsToCart('Санкт-Петербург', 300)">Добавить в корзину</button>
-    </form>
+            <label for="groupTicketCheckbox">Групповая экскурсия (20 000 руб.):</label>
+            <input type="checkbox" id="groupTicketCheckbox" name="groupTicketCheckbox" value="true"><br><br>
+
+            <button type="button" onclick="addSelectedTicketsToCart('Санкт-Петербург')">Добавить в корзину</button>
+        </form>
     </div>
-  </div>
+</div>
 
     <div class="product-details">
       <h1 class="product-title" align="center"> Билет в Музей Космонавтики в Санкт-Петербурге </h1>
@@ -253,6 +256,7 @@
 Эмоции: Радость совместного открытия!
 Еще: Семейные экскурсии, фотозоны.
       </p>
+      <h4 align="center"> Экскурсии проводятся только в сопровождении с экскурсоводом</h4>
       <h4 align="center">Приятного путешествия :)</h4>
     </div>
 
