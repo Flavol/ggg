@@ -183,15 +183,13 @@ html{
       margin-bottom: 30px;
     }
 
-    .museum-image {
-      width: clamp(100px, 20vw, 700px);
-      max-width: 600px;
-      height: auto;
-      margin: 20px auto;
-      display: block;
-      border: 1px solid #ddd;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
+  .museum-image {
+    max-width: 500px; /* Ограничиваем максимальную ширину */
+    height: auto;
+    cursor: pointer; /* Изменяем курсор на "руку" при наведении */
+  }
+
+
 
     .contact-info1 {
       margin-top: 30px;
@@ -295,26 +293,53 @@ html{
 
           
   .modal {
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
-    left: 0;
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
     top: 0;
-    width: 100%; 
-    height: 100%; 
-    overflow: auto; 
-    background-color: rgba(0,0,0,0.9); 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Затемнение фона */
+    z-index: 1000; /* Поверх всего */
+    overflow: auto; /* Добавляем прокрутку, если контент не помещается */
   }
 
   .modal-content {
+    position: relative;
     margin: auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    animation-name: zoom;
-    animation-duration: 0.6s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%; /* Ширина контента */
+    max-width: 900px; /* Максимальная ширина */
+    height: 80%; /* Высота контента */
+    max-height: 700px; /* Максимальная высота */
   }
 
+    .modal-image {
+    max-width: 100%;
+    max-height: 70%; /* Ограничиваем высоту изображения */
+    object-fit: contain; /* Умещаем изображение в контейнер */
+  }
+
+    .modal-biography {
+      font-family: "Oswald", sans-serif;
+    color: white; /* Белый текст */
+    font-size: 18px;
+    line-height: 1.6;
+    margin-top: 20px;
+    text-align: center; /* Центрируем текст */
+  }
+
+    .close-button {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
 
   #caption {
     color: #fff;
@@ -362,6 +387,11 @@ position: relative;
 bottom: 0;
 width: 100%;
   }
+  .image-container {
+    display: flex; /* Используем flexbox для центрирования */
+    justify-content: center; /* Центрируем по горизонтали */
+    align-items: center; /* Центрируем по вертикали (если нужно) */
+  }
     </style>
 </head>
 <nav class="panelq">
@@ -389,7 +419,16 @@ width: 100%;
     
         <div class="museum-section">
           <h2>История музея</h2>
-          <img src="pic/korol.jpg" id="myImg" alt="История музея" class="museum-image">
+          <div class="image-container">
+          <img src="pic/korol.jpg" id="myImg" alt="История музея" class="museum-image" align="center">
+          </div>
+          <div id="myModal" class="modal">
+           <div class="modal-content">
+            <span class="close-button" onclick="closeModal()">&times;</span>
+            <img src="" alt="Увеличенная фотография Королева" class="modal-image">
+            <div class="modal-biography" id="modalBiography"></div>
+           </div>
+          </div>
           <p>Музей AstroPass был основан в 1961 году по инициативе С.П. Королёва, вскоре после полёта Гагарина, и открыт для посетителей в 1981 году.
 
             С момента открытия он стал главным хранителем истории освоения космоса.
@@ -410,7 +449,9 @@ width: 100%;
     
         <div class="museum-section">
           <h2>Коллекции и экспозиции</h2>
+          <div class="image-container">
           <img   src="pic/gaga.jpg" id="myImg" alt="Экспозиция музея" class="museum-image">
+          </div>
           <p>В Музее Космонавтики вас ждут:
 
             История покорения космоса: От первых спутников до Гагарина.
@@ -463,29 +504,39 @@ width: 100%;
 
 <script>
 
-var modal = document.getElementById("myModal");
-var img = document.getElementById("myImg");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-var span = document.getElementsByClassName("close")[0];
+document.addEventListener('DOMContentLoaded', function() {
+  const img = document.getElementById("myImg");
+  const modal = document.getElementById("myModal");
+  const modalImage = document.querySelector(".modal-image");
+  const modalBiography = document.getElementById("modalBiography");
+  const biographyText = `Сергей Павлович Королёв (1907-1966) - советский учёный, конструктор ракетно-космической техники, главный конструктор первых ракет-носителей, искусственных спутников Земли, пилотируемых космических кораблей. Под его руководством был осуществлён запуск первого искусственного спутника Земли и первого космонавта Юрия Гагарина. Его вклад в развитие космонавтики огромен.`;
 
-img.onclick = function(){
-  modal.style.display = "block";
-  modalImg.src = this.src; 
-  captionText.innerHTML = this.alt; 
-}
+  img.onclick = function() {
+    modal.style.display = "block";
+    modalImage.src = this.src; // Устанавливаем источник для модального изображения
 
+    modalBiography.innerHTML = '';
+    let i = 0;
+    const intervalId = setInterval(() => {
+      modalBiography.innerHTML += biographyText.charAt(i);
+      i++;
+      if (i > biographyText.length - 1) {
+        clearInterval(intervalId);
+      }
+    }, 10);
+  }
 
-span.onclick = function() {
-  modal.style.display = "none";
-}
-
-
-modal.onclick = function(event) {
+  window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+      closeModal();
     }
-}
+  }
+
+  function closeModal() {
+    modal.style.display = "none";
+    modalBiography.innerHTML = ''; // Очищаем текст при закрытии
+  }
+});
 </script>
 </main>
 
